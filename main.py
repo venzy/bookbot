@@ -1,11 +1,12 @@
+from stats import get_num_words, count_chars
+
 def main():
     with open("books/frankenstein.txt") as f:
         # Ingest
         file_contents = f.read()
 
         # Calculate
-        words = file_contents.split()
-        word_count = len(words)
+        word_count = get_num_words(file_contents)
         lchar_counts = count_chars(file_contents)
 
         # Report
@@ -20,15 +21,6 @@ def main():
                 print(f"The \'{count_entry['char']}\' character was found {count_entry['count']} times")
         
         print('--- End report ---')
-
-def count_chars(str):
-    lchar_counts = {}
-    for lchar in str.lower():
-        if lchar in lchar_counts:
-            lchar_counts[lchar] += 1
-        else:
-            lchar_counts[lchar] = 1
-    return lchar_counts
 
 def sort_on_count(dict):
     return dict['count']
