@@ -13,3 +13,6 @@ def count_chars(str):
             lchar_counts[lchar] = 1
     return lchar_counts
 
+def sort_on_count(dict):
+    return dict['count']
+
